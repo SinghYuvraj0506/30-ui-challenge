@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'ProductSans';
+    src: url('./assets/fonts/Product\ Sans\ Bold.ttf') format('truetype'),
+        url('./assets/fonts/Product\ Sans\ Bold\ Italic.ttf') format('truetype'),
+        url('./assets/fonts/Product\ Sans\ Italic.ttf') format('truetype'),
+        url('./assets/fonts/Product\ Sans\ Regular.ttf') format('truetype');
+}
+
+*{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'ProductSans', sans-serif;
+}

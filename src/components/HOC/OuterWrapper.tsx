@@ -1,15 +1,17 @@
-import React, { ReactNode } from 'react'
+import clsx from 'clsx';
+import React, { FC, ComponentType } from 'react';
 
-type Props = {
-    children: ReactNode
-}
+const OuterWrapper = <P extends object>(WrappedComponent: ComponentType<P>, className?:string): FC<P> => {
+    const Wrapper: FC<P> = (props) => {
+        return (
+            <div className={clsx("w-full h-full px-[4vw] sm:px-[8vw]",className)}>
+                <WrappedComponent {...props} />
+            </div>
+        );
+    };
 
-const OuterWrapper = ({children}:Props) => {
-  return (
-    <div className='w-full h-full px-[4vw] sm:px-[8vw]'>
-        {children}
-    </div>
-  )
-}
+    Wrapper.displayName = `Wrapper(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
+    return Wrapper;
+};
 
-export default OuterWrapper
+export default OuterWrapper;
