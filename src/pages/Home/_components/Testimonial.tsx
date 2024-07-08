@@ -39,7 +39,7 @@ const Testimonial = () => {
                 </h1>
             </div>
 
-            <div className="w-full grid grid-cols-3 gap-4">
+            <div className="w-full grid grid-cols-2 place-items-center lg:grid-cols-3 gap-4">
                 {testimonialContent?.map((data) => (
                     <TestimonialCard {...data} />
                 ))}

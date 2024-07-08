@@ -19,3 +19,12 @@
 body {
     font-family: 'ProductSans', sans-serif;
 }
+
+.swiper-container {
+    height: calc(50vh - 120px) !important;
+    margin: 60px !important;
+  }
+
+.swiper-container-free-mode > .swiper-wrapper{
+    transition-timing-function : linear  !important;
+  }
