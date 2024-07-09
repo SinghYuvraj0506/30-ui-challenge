@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { FC, ComponentType } from 'react';
+import { FC, ComponentType } from 'react';
 
 const OuterWrapper = <P extends object>(WrappedComponent: ComponentType<P>, className?:string): FC<P> => {
     const Wrapper: FC<P> = (props) => {

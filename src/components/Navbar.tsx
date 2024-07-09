@@ -3,14 +3,10 @@ import { navLinks } from '../libs/constants';
 import { Logo } from './Logo';
 import config from '../libs/config';
 import menu from '../assets/svg/menu.svg';
-import cross from '../assets/svg/cross.svg';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { useEffect, useState} from 'react';
 
 const Navbar = () => {
-
-    const [openMenu, setOpenMenu] = useState(false)
 
     const tl = gsap.timeline({ paused: true });
 
@@ -59,7 +55,7 @@ const Navbar = () => {
                         ))}
                     </div>
                 ) : (
-                    <img src={menu} alt="menu" onClick={(e)=>{handleHamClick()}} />
+                    <img src={menu} alt="menu" onClick={()=>{handleHamClick()}} />
                 )}
             </div>
             <div

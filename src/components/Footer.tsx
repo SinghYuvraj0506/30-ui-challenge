@@ -1,4 +1,3 @@
-import React from 'react';
 import OuterWrapper from './HOC/OuterWrapper';
 import clsx from 'clsx';
 import config from '../libs/config';

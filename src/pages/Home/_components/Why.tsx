@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+
 import OuterWrapper from '../../../components/HOC/OuterWrapper';
 import clsx from 'clsx';
 import config from '../../../libs/config';
