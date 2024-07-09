@@ -12,19 +12,24 @@
         url('./assets/fonts/Product\ Sans\ Regular.ttf') format('truetype');
 }
 
-*{
+* {
     scroll-behavior: smooth;
 }
 
 body {
     font-family: 'ProductSans', sans-serif;
+    overflow-x: hidden;
 }
 
 .swiper-container {
     height: calc(50vh - 120px) !important;
     margin: 60px !important;
-  }
+}
 
-.swiper-container-free-mode > .swiper-wrapper{
-    transition-timing-function : linear  !important;
-  }
+.swiper-container-free-mode > .swiper-wrapper {
+    transition-timing-function: linear !important;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}

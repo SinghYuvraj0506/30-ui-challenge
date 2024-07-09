@@ -138,9 +138,6 @@ export const socialLinks = [
 
 export const otherWebsiteLinks = [
     {
-        name:"All right reserved",
-    },
-    {
         name:"Privacy Policy",
         link:"/"
     },
