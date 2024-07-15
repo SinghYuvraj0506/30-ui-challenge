@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Main from './_components/Main';
 import Why from './_components/Why';
@@ -9,11 +9,13 @@ import Footer from '../../components/Footer';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import Success from '../../components/dialogs/Success';
 
-gsap.registerPlugin(ScrollTrigger, useGSAP  );
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const HomePage = () => {
     const mainContainer = useRef<HTMLDivElement | null>(null);
+    const [successModalOpen, setSuccessModalOpen] = useState(false);
 
     useGSAP(() => {
         const t1 = gsap.timeline();
@@ -71,16 +73,20 @@ const HomePage = () => {
         });
     }, []);
 
+
     return (
-        <div ref={mainContainer}>
-            <Navbar />
-            <Main />
-            <Why />
-            <How />
-            <Community />
-            <Testimonial />
-            <Footer />
-        </div>
+        <>
+            {successModalOpen && <Success onClose={() => setSuccessModalOpen(false)} />}
+            <div ref={mainContainer}>
+                <Navbar />
+                <Main openSuccessModal={() => setSuccessModalOpen(true)} />
+                <Why />
+                <How />
+                <Community />
+                <Testimonial />
+                <Footer openSuccessModal={() => setSuccessModalOpen(true)} />
+            </div>
+        </>
     );
 };
 

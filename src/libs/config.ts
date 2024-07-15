@@ -4,7 +4,7 @@ const typography = {
     head64: 'text-[32px] sm:text-[48px] lg:text-[64px] font-bold leading-[35px] sm:leading-[52px] lg:leading-[70px] text-center max-w-[754px]',
     head48: 'text-[28px] sm:text-[32px] lg:text-[48px] font-bold leading-[30px] sm:leading-[35px] lg:leading-[52px]  max-w-[592px]',
     head24: 'sm:text-[16px] lg:text-[24px] font-inter font-bold leading-tight max-w-[300px]',
-    head24Normal: 'text-xs sm:text-sm lg:text-[24px] leading-tight max-w-[300px]',
+    head24Normal: 'text-xs sm:text-sm lg:text-[24px] leading-tight',
     head32: 'text-[24px] lg:text-[32px] font-inter font-bold leading-[26px] lg:leading-[35px] max-w-[389px]',
     text20: 'text-[20px] leading-[22px]',
 

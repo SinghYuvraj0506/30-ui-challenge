@@ -4,8 +4,13 @@ import config from '../libs/config';
 import EmailForm from './forms/EmailForm';
 import { Logo } from './Logo';
 import { navLinks, otherWebsiteLinks, socialLinks } from '../libs/constants';
+import { FC } from 'react';
 
-const Footer = () => {
+type Props = {
+    openSuccessModal: () => void
+}
+
+const Footer:FC<Props> = ({openSuccessModal}) => {
     return (
         <div className="flex flex-col gap-[120px] py-[60px] sm:py-[100px]">
             <div className="w-full bg-secondary py-16 sm:py-20 flex flex-col text-center items-center justify-center gap-4 sm:gap-6 rounded-[40px]">
@@ -19,7 +24,7 @@ const Footer = () => {
                 </span>
 
                 <div className="mt-6 w-[82%] sm:w-auto">
-                    <EmailForm />
+                    <EmailForm onSubmit={openSuccessModal}/>
                 </div>
             </div>
 

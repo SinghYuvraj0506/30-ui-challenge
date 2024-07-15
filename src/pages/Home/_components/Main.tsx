@@ -12,8 +12,13 @@ import curve1 from '../../../assets/svg/curve1.svg';
 
 import icon1 from '../../../assets/svg/shield-tick.svg';
 import icon2 from '../../../assets/svg/tag.svg';
+import { FC } from 'react';
 
-const Main = () => {
+type Props = {
+    openSuccessModal: () => void
+}
+
+const Main:FC<Props> = ({openSuccessModal}) => {
     return (
         <div className="w-full h-max py-32 mb-48 lg:mb-64" id="mainCont">
             <div className="flex items-start justify-center relative w-full">
@@ -43,7 +48,7 @@ const Main = () => {
                     </span>
 
                     <div className="mt-8 email-form w-[82%] sm:w-auto">
-                        <EmailForm />
+                        <EmailForm onSubmit={openSuccessModal}/>
                     </div>
                 </section>
 

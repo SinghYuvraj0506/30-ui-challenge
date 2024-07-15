@@ -8,6 +8,8 @@ import icon1 from "../assets/svg/path.svg"
 import icon2 from "../assets/svg/bezier.svg"
 import icon3 from "../assets/svg/user.svg"
 import icon4 from "../assets/svg/clipboard.svg"
+import icon5 from "../assets/svg/boxRecieve.svg"
+import icon6 from "../assets/svg/tagUser.svg"
 import instaIcon from "../assets/svg/Instagram.svg"
 import xIcon from "../assets/svg/X.svg"
 
@@ -149,4 +151,19 @@ export const otherWebsiteLinks = [
         name:"Cookies Settings",
         link:"/"
     },
+]
+
+export const successDialogContent = [
+    {
+        icon:icon5,
+        content:"Open your Email Inbox and check our welcome Email"
+    },
+    {
+        icon:icon2,
+        content:"And make sure you have your design software ready"
+    },
+    {
+        icon:icon6,
+        content:"Tag us on social media to stay featured."
+    }
 ]
