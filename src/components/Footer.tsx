@@ -7,7 +7,7 @@ import { navLinks, otherWebsiteLinks, socialLinks } from '../libs/constants';
 import { FC } from 'react';
 
 type Props = {
-    openSuccessModal: () => void
+    openSuccessModal: (value?:string) => void
 }
 
 const Footer:FC<Props> = ({openSuccessModal}) => {

@@ -10,6 +10,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Success from '../../components/dialogs/Success';
+import toast from 'react-hot-toast';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -73,18 +74,48 @@ const HomePage = () => {
         });
     }, []);
 
+    const handleSuccess = async (value?: string) => {
+        const reponse = new Promise((resolve, reject) => {
+            fetch(`${import.meta.env.VITE_HOST_URL}/api/v1/user/initiateSubscription`, {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: value
+                })
+            })
+                .then((e) => {
+                    return e.json();
+                })
+                .then((e) => {
+                    console.log(e);
+                    if (e?.statusCode === 200 && e?.success) {
+                        setSuccessModalOpen(true);
+                        resolve(e);
+                    }
+                    reject(e?.message || 'Could not initate the subscription, Try Again!!!');
+                });
+        });
+
+        toast.promise(reponse, {
+            loading: 'Please Wait...',
+            success: 'Subscribed',
+            error: (e) => (e?.message || e)
+        });
+    };
 
     return (
         <>
             {successModalOpen && <Success onClose={() => setSuccessModalOpen(false)} />}
             <div ref={mainContainer}>
                 <Navbar />
-                <Main openSuccessModal={() => setSuccessModalOpen(true)} />
+                <Main openSuccessModal={handleSuccess} />
                 <Why />
                 <How />
                 <Community />
                 <Testimonial />
-                <Footer openSuccessModal={() => setSuccessModalOpen(true)} />
+                <Footer openSuccessModal={handleSuccess} />
             </div>
         </>
     );

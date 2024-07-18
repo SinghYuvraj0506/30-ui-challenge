@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import config from '../../libs/config';
 import { FC, useState } from 'react';
+import toast from 'react-hot-toast';
 
 type FormProps = {
     onSubmit: (value: string) => void;
@@ -19,7 +20,7 @@ const EmailForm: FC<FormProps> = ({ onSubmit }) => {
         }
 
         else{
-          alert("Enter valid email")
+            toast.error("Enter valid email");
         }
     };
 

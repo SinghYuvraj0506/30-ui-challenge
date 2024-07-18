@@ -15,7 +15,7 @@ import icon2 from '../../../assets/svg/tag.svg';
 import { FC } from 'react';
 
 type Props = {
-    openSuccessModal: () => void
+    openSuccessModal: (value?:string) => void
 }
 
 const Main:FC<Props> = ({openSuccessModal}) => {
