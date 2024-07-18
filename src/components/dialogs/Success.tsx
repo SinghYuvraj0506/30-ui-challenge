@@ -3,8 +3,6 @@ import DialogWrapper from '../HOC/DialogWrapper';
 import config from '../../libs/config';
 import { socialLinks, successDialogContent } from '../../libs/constants';
 import icon1 from '../../assets/svg/arrowLeft.svg';
-import { useGSAP } from '@gsap/react';
-import gsap from "gsap";
 
 type CardProps = {
     icon: string;
