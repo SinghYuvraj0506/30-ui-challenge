@@ -109,7 +109,6 @@ const HomePage = () => {
         <>
             {successModalOpen && <Success onClose={() => setSuccessModalOpen(false)} />}
             <div ref={mainContainer}>
-                <Navbar />
                 <Main openSuccessModal={handleSuccess} />
                 <Why />
                 <How />

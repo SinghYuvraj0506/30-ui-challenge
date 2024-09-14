@@ -33,3 +33,7 @@ body {
 body::-webkit-scrollbar {
     display: none;
 }
+
+.no-scrollbar {
+    scrollbar-width: 0;
+}

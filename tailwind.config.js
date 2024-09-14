@@ -8,6 +8,7 @@ export default {
   theme: {
     extend: {
       colors:{
+        greyBg:"#ffffff1a",
         secondary:"#F1F0FF",
         primary:"#5F51F1",
         textBlack01:"#080714",
@@ -16,7 +17,7 @@ export default {
         textgrey02:"#0807149966"
       },
       fontFamily:{
-        inter:'"Inter",sans-serif'
+        inter:'Urbanist,sans-serif'
       },
     },
   },
