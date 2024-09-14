@@ -5,15 +5,12 @@ import config from '../../../libs/config';
 type Props = {
     title: string;
     style: string;
-    industry: string[];
     imgSrc: string;
     format: string[];
-    downloadLinK: string;
-    desc?: string;
     openModal?: () => void;
 };
 
-const TypographyCard = ({ title, style, industry, imgSrc, format, downloadLinK, desc, openModal }: Props) => {
+const TypographyCard = ({ title, style, imgSrc, openModal }: Props) => {
     return (
         <div
             className="flex w-full flex-col gap-3 cursor-pointer"

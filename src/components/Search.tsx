@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { SearchNormal1 } from 'iconsax-react';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import config from '../libs/config';
 import { typographyIndustryTags, typographyTags } from '../libs/constants';
 

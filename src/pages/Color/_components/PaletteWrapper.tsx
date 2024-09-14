@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CloseCircle, Copy, DocumentDownload } from 'iconsax-react';
 import config from '../../../libs/config';
 import clsx from 'clsx';

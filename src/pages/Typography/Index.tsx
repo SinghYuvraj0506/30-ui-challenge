@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import OuterWrapper from '../../components/HOC/OuterWrapper';
 import clsx from 'clsx';
 import config from '../../libs/config';

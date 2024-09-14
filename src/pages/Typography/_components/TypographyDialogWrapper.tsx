@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import DialogWrapper from '../../../components/HOC/DialogWrapper';
-import { CloseCircle, Copy, DocumentDownload } from 'iconsax-react';
+import { CloseCircle, DocumentDownload } from 'iconsax-react';
 import config from '../../../libs/config';
 import clsx from 'clsx';
 import { TypographyData } from '../../../libs/constants';

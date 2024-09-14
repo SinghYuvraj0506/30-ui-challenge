@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import Navbar from '../../components/Navbar';
 import Main from './_components/Main';
 import Why from './_components/Why';
 import How from './_components/How';
