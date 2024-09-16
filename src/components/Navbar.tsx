@@ -39,15 +39,15 @@ const Navbar = () => {
     return (
         <div className="relative flex flex-col px-[4vw] sm:px-[8vw] w-full border-b-[1px] border-b-[#08071433]">
             <div
-                className="w-full h-full flex items-center justify-between lg:justify-center sm:relative py-5 sm:py-7 lg:py-8"
+                className="w-full h-full flex items-center justify-between sm:relative py-5 sm:py-7 lg:py-8"
                 id="nav-container"
             >
-                <div className="relative lg:absolute left-0 w-12 h-12">
+                <div className="w-12 h-12">
                     <Logo />
                 </div>
 
                 {window.screen.width > 630 ? (
-                    <div className={clsx('flex items-center gap-16 lg:gap-20 text-textBlack01', config.typography.text16)}>
+                    <div className={clsx('flex items-center gap-16 lg:gap-12 text-textBlack01', config.typography.text16)}>
                         {navLinks?.map((nav) => (
                             <a href={nav?.link} key={nav?.name}>
                                 {nav?.name}

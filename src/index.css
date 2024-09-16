@@ -35,5 +35,10 @@ body::-webkit-scrollbar {
 }
 
 .no-scrollbar {
-    scrollbar-width: 0;
+    -ms-overflow-style: none;  /* for Internet Explorer, Edge */
+    scrollbar-width: none;  /* for Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar{
+    display: none;
 }

@@ -65,11 +65,11 @@ const Main:FC<Props> = ({openSuccessModal}) => {
             </div>
 
             <div
-                className="absolute -bottom-48 lg:-bottom-72 left-0 w-full h-max py-10 z-10 flex items-center justify-end"
+                className="absolute -bottom-48 lg:-bottom-72 left-0 w-full h-max py-10 z-10 flex items-center justify-end no-scrollbar"
                 style={{ background: 'linear-gradient(rgb(255, 255, 255) 5%, rgb(215, 212, 241) 56.21%)' }}
                 id="slider-container"
             >
-                <div className="overflow-x-auto w-full h-max flex items-center gap-5 justify-start">
+                <div className="w-full h-max flex items-center gap-5 justify-start">
                     <img src={image1} alt="" className="w-[328px] h-[202px] lg:w-[389px] lg:h-[240px] rounded-3xl object-contain" />
                     <img src={image2} alt="" className="w-[328px] h-[202px] lg:w-[389px] lg:h-[240px] rounded-3xl object-cover" />
                     <img src={image3} alt="" className="w-[328px] h-[202px] lg:w-[389px] lg:h-[240px] rounded-3xl object-cover" />

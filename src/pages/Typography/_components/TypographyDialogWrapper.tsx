@@ -26,7 +26,7 @@ const TypographyDialogWrapper = ({ onClose, data, setModalData }: Props) => {
     
 
     return (
-        <div className="w-[84vw] bg-white rounded-3xl flex flex-col gap-10 p-12 box-border h-[70vh] overflow-auto" ref={containerRef}>
+        <div className="w-[84vw] bg-white rounded-3xl flex flex-col gap-10 p-12 box-border h-[70vh] overflow-auto no-scrollbar" ref={containerRef}>
             <div className="flex items-start justify-between">
                 <div className="flex flex-col gap-2">
                     <h2 className={clsx(config.typography.head48, 'text-textBlack01 font-normal')}>{data?.title}</h2>

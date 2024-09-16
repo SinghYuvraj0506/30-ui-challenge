@@ -1,9 +1,12 @@
+import logo from "../assets/images/logo.png"
 
 export const Logo = () => {
     return (
-        <div className="w-10 h-10 inline">
+        <div className="w-12 h-12 inline cursor-pointer" onClick={()=>{
+            window.open("/","_self")
+        }}>
             <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAHXPluq6GtTRPDIHRv5kJPy86uFjp5sO7hg&s"
+                src={logo}
                 alt="logo"
                 className="object-cover"
             />

@@ -13,7 +13,6 @@ import instaIcon from '../assets/svg/Instagram.svg';
 import xIcon from '../assets/svg/X.svg';
 
 export const navLinks = [
-    { name: 'Home', link: '/#' },
     { name: 'Typography', link: '/typography' },
     { name: 'Color Palette', link: '/color-palette' }
 ];
@@ -76,27 +75,27 @@ export const howItWorksContent = [
 export const communityContent = [
     {
         id: 1,
-        image: ''
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtx2eQMLqekkgeCVgxe6SWgby3nkP-CDCrDA&s'
     },
     {
         id: 2,
-        image: ''
+        image: 'https://cdn.mos.cms.futurecdn.net/MPQhfG9ka9J5Ju2rydDwEY.jpg'
     },
     {
         id: 3,
-        image: ''
+        image: 'https://semji.com/wp-content/uploads/2020/07/L-histoire-du-logo-Google-1-700x243.png'
     },
     {
         id: 5,
-        image: ''
+        image: 'https://store-images.s-microsoft.com/image/apps.56161.9007199266246365.1d5a6a53-3c49-4f80-95d7-78d76b0e05d0.a3e87fea-e03e-4c0a-8f26-9ecef205fa7b'
     },
     {
         id: 6,
-        image: ''
+        image: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/Meta_Inc._logo.jpg'
     },
     {
         id: 7,
-        image: ''
+        image: 'https://blogs.microsoft.com/wp-content/uploads/prod/2012/08/8867.Microsoft_5F00_Logo_2D00_for_2D00_screen.jpg'
     }
 ];
 

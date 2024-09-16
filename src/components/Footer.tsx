@@ -55,15 +55,15 @@ const Footer:FC<Props> = ({openSuccessModal}) => {
                 </section>
 
                 <section className={clsx('flex items-center flex-col sm:flex-row gap-7 pt-8 text-textBlack02')}>
-                    <span className={clsx(config.typography.text16,"text-nowrap")}>All right reserved</span>
+                    <span className={clsx(config.typography.text16,"text-nowrap")}>All right reserved © 2024</span>
 
-                    <div className="flex items-center justify-center gap-5 w-[80%] flex-wrap">
+                    {/* <div className="flex items-center justify-center gap-5 w-[80%] flex-wrap">
                         {otherWebsiteLinks?.map((nav, index) => (
                             <a href={nav?.link} key={index} target="_blank" className={clsx(config.typography.text16, 'underline')}>
                                 {nav?.name}
                             </a>
                         ))}
-                    </div>
+                    </div> */}
                 </section>
             </div>
         </div>
