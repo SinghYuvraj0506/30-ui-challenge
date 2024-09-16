@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import config from '../libs/config';
 import EmailForm from './forms/EmailForm';
 import { Logo } from './Logo';
-import { navLinks, otherWebsiteLinks, socialLinks } from '../libs/constants';
+import { navLinks, socialLinks } from '../libs/constants';
 import { FC } from 'react';
 
 type Props = {
