@@ -1,8 +1,8 @@
-import logo from "../assets/images/logo.png"
+import logo from "../assets/images/logo.webp"
 
 export const Logo = () => {
     return (
-        <div className="w-12 h-12 inline cursor-pointer" onClick={()=>{
+        <div className="w-14 h-14 flex cursor-pointer" onClick={()=>{
             window.open("/","_self")
         }}>
             <img

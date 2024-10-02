@@ -3,10 +3,11 @@ import clsx from 'clsx';
 import config from '../../../libs/config';
 import EmailForm from '../../../components/forms/EmailForm';
 
-import image1 from '../../../assets/images/herosection/1.png';
-import image2 from '../../../assets/images/herosection/2.png';
-import image3 from '../../../assets/images/herosection/3.png';
-import image4 from '../../../assets/images/herosection/4.png';
+import image1 from '../../../assets/images/herosection/1.webp';
+import image2 from '../../../assets/images/herosection/2.webp';
+import image3 from '../../../assets/images/herosection/3.webp';
+import image4 from '../../../assets/images/herosection/4.webp';
+import image5 from '../../../assets/images/herosection/5.webp';
 
 import curve1 from '../../../assets/svg/curve1.svg';
 
@@ -69,15 +70,17 @@ const Main:FC<Props> = ({openSuccessModal}) => {
                 style={{ background: 'linear-gradient(rgb(255, 255, 255) 5%, rgb(215, 212, 241) 56.21%)' }}
                 id="slider-container"
             >
-                <div className="w-full h-max flex items-center gap-5 justify-start">
+                <div className="w-full h-max flex items-center gap-5 justify-start overflow-hidden">
                     <img src={image1} alt="" className="w-[328px] h-[202px] lg:w-[389px] lg:h-[240px] rounded-3xl object-contain" />
                     <img src={image2} alt="" className="w-[328px] h-[202px] lg:w-[389px] lg:h-[240px] rounded-3xl object-cover" />
                     <img src={image3} alt="" className="w-[328px] h-[202px] lg:w-[389px] lg:h-[240px] rounded-3xl object-cover" />
                     <img src={image4} alt="" className="w-[328px] h-[202px] lg:w-[389px] lg:h-[240px] rounded-3xl object-cover" />
+                    <img src={image5} alt="" className="w-[328px] h-[202px] lg:w-[389px] lg:h-[240px] rounded-3xl object-cover" />
                     <img src={image1} alt="" className="w-[328px] h-[202px] lg:w-[389px] lg:h-[240px] rounded-3xl object-contain" />
                     <img src={image2} alt="" className="w-[328px] h-[202px] lg:w-[389px] lg:h-[240px] rounded-3xl object-cover" />
                     <img src={image3} alt="" className="w-[328px] h-[202px] lg:w-[389px] lg:h-[240px] rounded-3xl object-cover" />
                     <img src={image4} alt="" className="w-[328px] h-[202px] lg:w-[389px] lg:h-[240px] rounded-3xl object-cover" />
+                    <img src={image5} alt="" className="w-[328px] h-[202px] lg:w-[389px] lg:h-[240px] rounded-3xl object-cover" />
                 </div>
             </div>
         </div>

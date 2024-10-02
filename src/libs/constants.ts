@@ -1,7 +1,7 @@
-import image1 from '../assets/images/how/image1.png';
-import image2 from '../assets/images/how/image2.png';
-import image3 from '../assets/images/how/image3.png';
-import image4 from '../assets/images/how/image4.png';
+import image1 from '../assets/images/how/image1.webp';
+import image2 from '../assets/images/how/image2.webp';
+import image3 from '../assets/images/how/image3.webp';
+import image4 from '../assets/images/how/image4.webp';
 
 import icon1 from '../assets/svg/path.svg';
 import icon2 from '../assets/svg/bezier.svg';
@@ -101,25 +101,25 @@ export const communityContent = [
 
 export const testimonialContent = [
     {
-        username: 'Yuvraj Singh',
-        designation: 'Developer',
+        username: 'Sunny Prakash',
+        designation: 'Product Manager',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/ChrisEvans2023.jpg/800px-ChrisEvans2023.jpg',
         testimonial:
-            '“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sunt in culpa qui officia deserunt mollit anim id est laborum.”'
+            'The 30 Days UI Challenge was a game-changer for me! Each day’s challenge pushed me out of my comfort zone, allowing me to sharpen my design skills while discovering new techniques. I highly recommend it to anyone looking to level up their UI design!'
+    },
+    {
+        username: 'Shivam Shah',
+        designation: 'UI/UX Designer',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/ChrisEvans2023.jpg/800px-ChrisEvans2023.jpg',
+        testimonial:
+            "This challenge gave me the perfect blend of creativity and structure to improve my UI skills. The daily tasks were fun yet challenging, and by the end, I could clearly see how much my designs had improved. If you're looking to grow as a designer, this is the way to go!"
     },
     {
         username: 'Yuvraj Singh',
         designation: 'Developer',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/ChrisEvans2023.jpg/800px-ChrisEvans2023.jpg',
         testimonial:
-            '“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sunt in culpa qui officia deserunt mollit anim id est laborum.”'
-    },
-    {
-        username: 'Yuvraj Singh',
-        designation: 'Developer',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/ChrisEvans2023.jpg/800px-ChrisEvans2023.jpg',
-        testimonial:
-            '“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sunt in culpa qui officia deserunt mollit anim id est laborum.”'
+            "Taking part in the 30 Days UI Challenge helped me build confidence and develop a routine around design. The variety of tasks kept things exciting, and I was able to expand my portfolio with projects I’m really proud of. It’s an excellent learning experience!"
     }
 ];
 
