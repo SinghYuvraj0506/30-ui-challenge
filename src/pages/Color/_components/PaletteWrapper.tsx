@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef} from 'react';
 import { CloseCircle, Copy, DocumentDownload } from 'iconsax-react';
 import config from '../../../libs/config';
 import clsx from 'clsx';
@@ -7,20 +7,18 @@ import toast from 'react-hot-toast';
 import DialogWrapper from '../../../components/HOC/DialogWrapper';
 import ColorCard from './ColorCard';
 import { ColorData } from '../../../libs/constants';
+import useFetchColorPallete from '../../../hooks/useFetchColorPallate';
+import Loader from '../../../components/Loader';
 
 type Props = {
     onClose: () => void;
-    colorData: (typeof ColorData)[0] | null;
+    colorData: ColorData | null;
 };
 
 const PaletteWrapper = ({ onClose, colorData }: Props) => {
     const contentRef = useRef<HTMLDivElement>(null);
-    const [similarData, setSimilarData] = useState<typeof ColorData>([]);
 
-    useEffect(() => {
-        const data = ColorData?.filter((e) => e?.type === colorData?.type && e?.id !== colorData?.id);
-        setSimilarData(data);
-    }, []);
+    const { data: similarData , loading } = useFetchColorPallete({ page:1, type: colorData?.type as string, limit:10, infiniteScroll: false });
 
     const getImage = async () => {
         if (contentRef.current) {
@@ -79,7 +77,7 @@ const PaletteWrapper = ({ onClose, colorData }: Props) => {
 
             <div className="flex w-full min-h-[220px] rounded-xl overflow-hidden" ref={contentRef}>
                 {colorData?.colorCodes?.map((e) => (
-                    <div style={{ backgroundColor: `#${e}` }} className="flex-1 w-full h-full flex items-center justify-center">
+                    <div style={{ backgroundColor: e }} className="flex-1 w-full h-full flex items-center justify-center">
                         <span className={clsx(config.typography.text14, 'text-textBlack01 font-normal opacity-80')}>{e}</span>
                     </div>
                 ))}
@@ -106,15 +104,17 @@ const PaletteWrapper = ({ onClose, colorData }: Props) => {
                 </div>
             </div>
 
-            {similarData?.length > 0 && (<div className="flex flex-col gap-8 mt-20">
+            {similarData?.filter((e)=>e?._id !== colorData?._id)?.length > 0 && (<div className="flex flex-col gap-8 mt-20">
                 <h3 className={clsx(config.typography.head24Normal, 'text-textBlack01')}>Similar palettes</h3>
 
                 <div className="grid grid-cols-3 gap-5">
-                    {similarData?.map((e, index) => (
+                    {similarData?.filter((e)=>e?._id !== colorData?._id)?.map((e, index) => (
                         <ColorCard colorThemes={e?.colorCodes} type={e?.type} key={`palatecolrocard${index}`} />
                     ))}
                 </div>
             </div>)}
+
+            {loading && <Loader/>}
         </div>
     );
 };

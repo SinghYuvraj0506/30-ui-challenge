@@ -9,9 +9,10 @@ type Props = {
     selectedIndustry: string;
     handleSelectStyle: (e: string) => void;
     handleSelectIndustry: (e: string) => void;
+    onChangeInput:(e:string) => void
 };
 
-const Search = ({ handleSelectIndustry, handleSelectStyle, selectedIndustry, selectedStyle }: Props) => {
+const Search = ({ handleSelectIndustry, handleSelectStyle, selectedIndustry, selectedStyle, onChangeInput }: Props) => {
     const [openMore, setOpenMore] = useState(false);
 
     useEffect(() => {
@@ -53,6 +54,7 @@ const Search = ({ handleSelectIndustry, handleSelectStyle, selectedIndustry, sel
                     }}
                     onChange={(e)=>{
                         const value = e.target.value
+                        onChangeInput(value)
                         if (value !== ""){
                             setOpenMore(false)
                         }
@@ -78,7 +80,7 @@ const Search = ({ handleSelectIndustry, handleSelectStyle, selectedIndustry, sel
                                         config.typography.text14
                                     )}
                                     onClick={() => {
-                                        handleSelectStyle(e);
+                                        handleSelectStyle(e === "All" ? "" : e);
                                         setOpenMore(false);
                                     }}
                                 >
@@ -104,7 +106,7 @@ const Search = ({ handleSelectIndustry, handleSelectStyle, selectedIndustry, sel
                                         config.typography.text14
                                     )}
                                     onClick={() => {
-                                        handleSelectIndustry(e);
+                                        handleSelectIndustry(e === "All" ? "" : e);
                                         setOpenMore(false);
                                     }}
                                 >

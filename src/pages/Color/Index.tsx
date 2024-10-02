@@ -1,29 +1,44 @@
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import config from '../../libs/config';
 import { ColorData, ColorTags } from '../../libs/constants';
 import ColorCard from './_components/ColorCard';
 import OuterWrapper from '../../components/HOC/OuterWrapper';
 import PaletteWrapper from './_components/PaletteWrapper';
+import useFetchColorPallete from '../../hooks/useFetchColorPallate';
+import Loader from '../../components/Loader';
 
 const Color = () => {
-    const [SelectedTag, setSelectedTag] = useState('All');
-    const [filteredData, setFilteredData] = useState<typeof ColorData>([]);
+    const [SelectedTag, setSelectedTag] = useState('');
     const [modalOpen, setModalOpen] = useState(false);
-    const [selectedTheme, setSelectedTheme] = useState<typeof ColorData[0]>();
+    const [selectedTheme, setSelectedTheme] = useState<ColorData>();
+    const [page, setPage] = useState(1);
 
+    const observer = useRef<IntersectionObserver>();
 
     useEffect(() => {
-        setFilteredData([]);
-        let arr: typeof ColorData = [];
-        if (SelectedTag === 'All') {
-            arr = [...ColorData];
-        } else {
-            arr = ColorData?.filter((e) => e?.type === SelectedTag);
-        }
-        setFilteredData(arr);
+        setData([]);
+        setPage(1);
     }, [SelectedTag]);
 
+    const { data: filteredData, loading, error, hasMore, setData } = useFetchColorPallete({ page, type: SelectedTag });
+
+    const lastObserverRef = useCallback(
+        (node: Element) => {
+            if (loading) return;
+            if (observer.current) observer.current.disconnect();
+
+            observer.current = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && hasMore) {
+                    console.log('Visible');
+                    setPage(page + 1);
+                }
+            });
+
+            if (node) observer.current.observe(node);
+        },
+        [loading, hasMore]
+    );
 
     return (
         <>
@@ -47,7 +62,7 @@ const Color = () => {
                                 config.typography.text16
                             )}
                             onClick={() => {
-                                setSelectedTag(e);
+                                setSelectedTag(e === 'All' ? '' : e);
                             }}
                         >
                             {e}
@@ -55,19 +70,39 @@ const Color = () => {
                     ))}
                 </div>
 
-                <div className="grid grid-cols-4 gap-5">
-                    {filteredData?.map((e,index)=>(
-                        <ColorCard
-                            colorThemes={e?.colorCodes}
-                            handleSelect={() => {
-                                setModalOpen(true);
-                                setSelectedTheme(e);
-                            }}
-                            type={e?.type}
-                            key={`colorcard${index}`}
-                        />
-                    ))}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+                    {filteredData?.map((e, index) => {
+                        if (filteredData?.length === index + 1) {
+                            return (
+                                <div ref={lastObserverRef}>
+                                    <ColorCard
+                                        colorThemes={e?.colorCodes}
+                                        handleSelect={() => {
+                                            setModalOpen(true);
+                                            setSelectedTheme(e);
+                                        }}
+                                        type={e?.type}
+                                        key={`colorcard${index}`}
+                                    />
+                                </div>
+                            );
+                        }
+
+                        return (
+                            <ColorCard
+                                colorThemes={e?.colorCodes}
+                                handleSelect={() => {
+                                    setModalOpen(true);
+                                    setSelectedTheme(e);
+                                }}
+                                type={e?.type}
+                                key={`colorcard${index}`}
+                            />
+                        );
+                    })}
                 </div>
+
+                {loading && <Loader/>}
             </div>
         </>
     );

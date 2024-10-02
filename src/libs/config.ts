@@ -1,6 +1,7 @@
 const typography = {
     text16: 'text-xs sm:text-sm lg:text-[16px] font-normal leading-[16px] sm:leading-[19px] lg:leading-[22px] max-w-[460px]',
     text14: 'text-xs sm:text-sm font-normal leading-[16px] sm:leading-[22px] max-w-[460px]',
+    text12: 'text-[10px] sm:text-sm font-normal leading-[16px] sm:leading-[22px] max-w-[460px]',
     head64: 'text-[32px] sm:text-[48px] lg:text-[64px] font-bold leading-[35px] sm:leading-[52px] lg:leading-[70px] text-center max-w-[754px]',
     head48: 'text-[28px] sm:text-[32px] lg:text-[48px] font-bold leading-[30px] sm:leading-[35px] lg:leading-[52px]  max-w-[592px]',
     head24: 'sm:text-[16px] lg:text-[24px] font-inter font-bold leading-tight max-w-[300px]',

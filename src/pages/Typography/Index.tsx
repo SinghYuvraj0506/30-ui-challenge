@@ -1,29 +1,58 @@
-import { useEffect, useState } from 'react';
+import { useRef, useState, useCallback, useEffect } from 'react';
 import OuterWrapper from '../../components/HOC/OuterWrapper';
 import clsx from 'clsx';
 import config from '../../libs/config';
-import { TypographyData, typographyTags } from '../../libs/constants';
+import { typographyTags } from '../../libs/constants';
 import TypographyCard from './_components/TypographyCard';
 import TypographyDialogWrapper from './_components/TypographyDialogWrapper';
 import Search from '../../components/Search';
+import useFetchTypography from '../../hooks/useFetchTypography';
+import Loader from '../../components/Loader';
+import useDebounce from '../../hooks/useDebounce';
 
 const Typography = () => {
-    const [SelectedTag, setSelectedTag] = useState({ style: 'All', industry: 'All' });
-    const [filteredData, setFilteredData] = useState<typeof TypographyData>([]);
+    const [SelectedTag, setSelectedTag] = useState({ style: '', industry: '' });
+    const [search, setSearch] = useState('');
+    const [page, setPage] = useState(1);
     const [modalData, setModalData] = useState<{
         open: boolean;
         data: (typeof TypographyData)[0] | null;
     }>({ open: false, data: null });
 
-    useEffect(() => {
-        setFilteredData([]);
+    const observer = useRef<IntersectionObserver>();
 
-        const arr = TypographyData?.filter((e) => {
-            return e?.style.includes(SelectedTag?.style === "All" ? "" : SelectedTag?.style)
-                && (SelectedTag?.industry === "All" ? true : e?.industry?.includes(SelectedTag?.industry))
-        });
-        setFilteredData(arr);
-    }, [SelectedTag]);
+    const {debouncedInputValue} = useDebounce(search)
+
+    useEffect(() => {
+        setData([]);
+        setPage(1);
+    }, [SelectedTag,debouncedInputValue])
+
+    const {
+        data: filteredData,
+        loading,
+        error,
+        hasMore,
+        setData
+    } = useFetchTypography({ page, industry: SelectedTag?.industry, search: debouncedInputValue, style: SelectedTag?.style });
+
+
+    const lastObserverRef = useCallback(
+        (node: Element) => {
+            if (loading) return;
+            if (observer.current) observer.current.disconnect();
+
+            observer.current = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && hasMore) {
+                    console.log('Visible');
+                    setPage(page + 1);
+                }
+            });
+
+            if (node) observer.current.observe(node);
+        },
+        [loading, hasMore]
+    );    
 
     return (
         <>
@@ -33,7 +62,9 @@ const Typography = () => {
                         setModalData({ open: false, data: null });
                     }}
                     data={modalData?.data as (typeof TypographyData)[0]}
-                    setModalData={(e)=>{setModalData({ open: true, data: e })}}
+                    setModalData={(e) => {
+                        setModalData({ open: true, data: e });
+                    }}
                 />
             )}
 
@@ -54,6 +85,7 @@ const Typography = () => {
                     handleSelectStyle={(e) => {
                         setSelectedTag({ ...SelectedTag, style: e });
                     }}
+                    onChangeInput={(e)=>{setSearch(e)}}
                 />
 
                 <div className="flex items-center gap-4 w-full overflow-x-auto no-scrollbar">
@@ -67,7 +99,7 @@ const Typography = () => {
                                 config.typography.text16
                             )}
                             onClick={() => {
-                                setSelectedTag({ ...SelectedTag, style: e });
+                                setSelectedTag({ ...SelectedTag, style: e === 'All' ? '' : e });
                             }}
                         >
                             {e}
@@ -75,17 +107,35 @@ const Typography = () => {
                     ))}
                 </div>
 
-                <div className="grid grid-cols-4 gap-5">
-                    {filteredData?.map((e, index) => (
-                        <TypographyCard
-                            key={`${e?.title}-${index}`}
-                            {...e}
-                            openModal={() => {
-                                setModalData({ open: true, data: e });
-                            }}
-                        />
-                    ))}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+                    {filteredData?.map((e, index) => {
+                        if (filteredData?.length === index + 1) {
+                            return (
+                                <div ref={lastObserverRef}>
+                                    <TypographyCard
+                                        key={`${e?.fontName}-${index}`}
+                                        {...e}
+                                        openModal={() => {
+                                            setModalData({ open: true, data: e });
+                                        }}
+                                    />
+                                </div>
+                            );
+                        }
+
+                        return (
+                            <TypographyCard
+                                key={`${e?.fontName}-${index}`}
+                                {...e}
+                                openModal={() => {
+                                    setModalData({ open: true, data: e });
+                                }}
+                            />
+                        );
+                    })}
                 </div>
+
+                {loading && <Loader/>}
             </div>
         </>
     );
