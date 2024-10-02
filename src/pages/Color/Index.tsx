@@ -21,7 +21,7 @@ const Color = () => {
         setPage(1);
     }, [SelectedTag]);
 
-    const { data: filteredData, loading, error, hasMore, setData } = useFetchColorPallete({ page, type: SelectedTag });
+    const { data: filteredData, loading, hasMore, setData } = useFetchColorPallete({ page, type: SelectedTag });
 
     const lastObserverRef = useCallback(
         (node: Element) => {
@@ -74,7 +74,7 @@ const Color = () => {
                     {filteredData?.map((e, index) => {
                         if (filteredData?.length === index + 1) {
                             return (
-                                <div ref={lastObserverRef}>
+                                <div ref={lastObserverRef as any}>
                                     <ColorCard
                                         colorThemes={e?.colorCodes}
                                         handleSelect={() => {

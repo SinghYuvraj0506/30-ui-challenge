@@ -2,7 +2,7 @@ import { useRef, useState, useCallback, useEffect } from 'react';
 import OuterWrapper from '../../components/HOC/OuterWrapper';
 import clsx from 'clsx';
 import config from '../../libs/config';
-import { typographyTags } from '../../libs/constants';
+import { TypographyData, typographyTags } from '../../libs/constants';
 import TypographyCard from './_components/TypographyCard';
 import TypographyDialogWrapper from './_components/TypographyDialogWrapper';
 import Search from '../../components/Search';
@@ -16,7 +16,7 @@ const Typography = () => {
     const [page, setPage] = useState(1);
     const [modalData, setModalData] = useState<{
         open: boolean;
-        data: (typeof TypographyData)[0] | null;
+        data: TypographyData | null;
     }>({ open: false, data: null });
 
     const observer = useRef<IntersectionObserver>();
@@ -31,7 +31,6 @@ const Typography = () => {
     const {
         data: filteredData,
         loading,
-        error,
         hasMore,
         setData
     } = useFetchTypography({ page, industry: SelectedTag?.industry, search: debouncedInputValue, style: SelectedTag?.style });
@@ -61,7 +60,7 @@ const Typography = () => {
                     onClose={() => {
                         setModalData({ open: false, data: null });
                     }}
-                    data={modalData?.data as (typeof TypographyData)[0]}
+                    data={modalData?.data as TypographyData}
                     setModalData={(e) => {
                         setModalData({ open: true, data: e });
                     }}
@@ -111,7 +110,7 @@ const Typography = () => {
                     {filteredData?.map((e, index) => {
                         if (filteredData?.length === index + 1) {
                             return (
-                                <div ref={lastObserverRef}>
+                                <div ref={lastObserverRef as any}>
                                     <TypographyCard
                                         key={`${e?.fontName}-${index}`}
                                         {...e}
