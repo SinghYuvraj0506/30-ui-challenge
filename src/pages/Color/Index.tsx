@@ -55,7 +55,7 @@ const Color = () => {
                     {ColorTags?.map((e) => (
                         <span
                             className={clsx(
-                                'py-4 w-max text-nowrap px-8 border rounded-[50px] cursor-pointer',
+                                'py-2 sm:py-3 px-3 sm:px-6  w-max text-nowrap border rounded-[50px] cursor-pointer',
                                 SelectedTag === e
                                     ? 'bg-[#5F51F11A] border-transparent text-[#5F51F1]'
                                     : 'bg-transparent border-[#0807141F]',
@@ -70,7 +70,7 @@ const Color = () => {
                     ))}
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                     {filteredData?.map((e, index) => {
                         if (filteredData?.length === index + 1) {
                             return (

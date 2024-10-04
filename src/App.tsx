@@ -19,15 +19,15 @@ function App() {
             path: '/color-palette',
             element: <Color />
         }
-    ]);
+    ])
 
     return (
         <>
             <Navbar />
-            <RouterProvider router={router} />;
+            <RouterProvider router={router} />
             <Toaster position="top-right" reverseOrder={true} />
         </>
-    );
+    )
 }
 
 export default App;

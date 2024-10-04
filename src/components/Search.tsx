@@ -43,7 +43,7 @@ const Search = ({ handleSelectIndustry, handleSelectStyle, selectedIndustry, sel
             }}
             className="flex flex-col gap-2 relative"
         >
-            <div className="flex items-center w-full py-3 px-4 rounded-[32px] border border-[#08071429] bg-white gap-3">
+            <div className="flex items-center w-full py-2 sm:py-3 px-2 sm:px-4 rounded-[32px] border border-[#08071429] bg-white gap-3">
                 <SearchNormal1 size="24" color="#080714" />
                 <input
                     type="text"
@@ -73,7 +73,7 @@ const Search = ({ handleSelectIndustry, handleSelectStyle, selectedIndustry, sel
                             {typographyTags?.map((e) => (
                                 <span
                                     className={clsx(
-                                        'py-3 w-max text-nowrap px-6 border rounded-[50px] cursor-pointer',
+                                        'py-2 sm:py-3 w-max text-nowrap px-3 sm:px-6 border rounded-[50px] cursor-pointer',
                                         selectedStyle === e
                                             ? 'bg-[#5F51F11A] border-transparent text-[#5F51F1]'
                                             : 'bg-transparent border-[#0807141F]',

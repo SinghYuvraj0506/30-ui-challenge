@@ -63,7 +63,7 @@ const PaletteWrapper = ({ onClose, colorData }: Props) => {
     };
 
     return (
-        <div className="w-[84vw] bg-white rounded-3xl flex flex-col gap-10 p-12 box-border h-[70vh] overflow-auto no-scrollbar" >
+        <div className="w-[95vw] sm:w-[84vw] bg-white rounded-3xl flex flex-col gap-10 p-6 sm:p-12 box-border h-[80vh] sm:h-[70vh] overflow-auto no-scrollbar" >
             <div className="flex items-start justify-between">
                 <div className="flex flex-col gap-2">
                     <h2 className={clsx(config.typography.head48, 'text-textBlack01 font-normal')}>Palette</h2>
@@ -84,7 +84,7 @@ const PaletteWrapper = ({ onClose, colorData }: Props) => {
             </div>
 
             <div className="flex items-center justify-between flex-row-reverse">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center justify-between w-full sm:gap-4">
                     <button
                         className={clsx(
                             config.typography.text16,
@@ -105,9 +105,9 @@ const PaletteWrapper = ({ onClose, colorData }: Props) => {
             </div>
 
             {similarData?.filter((e)=>e?._id !== colorData?._id)?.length > 0 && (<div className="flex flex-col gap-8 mt-20">
-                <h3 className={clsx(config.typography.head24Normal, 'text-textBlack01')}>Similar palettes</h3>
+                <h3 className={clsx(config.typography.head24Normal, 'text-textBlack01 font-bold')}>Similar palettes</h3>
 
-                <div className="grid grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
                     {similarData?.filter((e)=>e?._id !== colorData?._id)?.map((e, index) => (
                         <ColorCard colorThemes={e?.colorCodes} type={e?.type} key={`palatecolrocard${index}`} />
                     ))}

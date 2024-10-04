@@ -67,7 +67,7 @@ const Typography = () => {
                 />
             )}
 
-            <div className="py-8 flex flex-col gap-8">
+            <div className="py-8 flex flex-col gap-5 sm:gap-8">
                 <div className="flex flex-col gap-2">
                     <h2 className={clsx(config.typography.head48, 'font-normal')}>Typography</h2>
                     <span className={clsx(config.typography.text16, 'text-textBlack01 opacity-40')}>
@@ -91,7 +91,7 @@ const Typography = () => {
                     {typographyTags?.map((e) => (
                         <span
                             className={clsx(
-                                'py-4 w-max text-nowrap px-8 border rounded-[50px] cursor-pointer',
+                                'py-2 sm:py-4 w-max text-nowrap px-4 sm:px-8 border rounded-[50px] cursor-pointer',
                                 SelectedTag?.style === e
                                     ? 'bg-[#5F51F11A] border-transparent text-[#5F51F1]'
                                     : 'bg-transparent border-[#0807141F]',
@@ -106,7 +106,7 @@ const Typography = () => {
                     ))}
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                     {filteredData?.map((e, index) => {
                         if (filteredData?.length === index + 1) {
                             return (
@@ -119,7 +119,7 @@ const Typography = () => {
                                         }}
                                     />
                                 </div>
-                            );
+                            )
                         }
 
                         return (
@@ -130,14 +130,14 @@ const Typography = () => {
                                     setModalData({ open: true, data: e });
                                 }}
                             />
-                        );
+                        )
                     })}
                 </div>
 
                 {loading && <Loader/>}
             </div>
         </>
-    );
-};
+    )
+}
 
 export default OuterWrapper(Typography);
