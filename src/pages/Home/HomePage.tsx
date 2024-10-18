@@ -18,7 +18,7 @@ const HomePage = () => {
     const mainContainer = useRef<HTMLDivElement | null>(null);
     const [successModalOpen, setSuccessModalOpen] = useState(false);
     const [alreadyModalOpen, setAlreadyModalOpen] = useState(false);
-    const [toastMessage, setToastMessage] = useState('');
+    // const [toastMessage, setToastMessage] = useState('');
 
     useGSAP(() => {
         const t1 = gsap.timeline();
