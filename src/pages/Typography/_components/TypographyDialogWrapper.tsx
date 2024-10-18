@@ -61,7 +61,7 @@ const TypographyDialogWrapper = ({ onClose, data, setModalData }: Props) => {
 
                 <div className="flex items-center gap-4">
                     <button
-                        className={clsx(config.typography.text16, 'flex items-center gap-2 rounded-[50px] bg-primary py-2 px-4 sm:py-3 sm:px-6 text-white')}
+                        className={clsx(config.typography.text16, 'flex items-center text-nowrap gap-2 rounded-[50px] bg-primary py-2 px-4 sm:py-3 sm:px-6 text-white')}
                         onClick={() => {
                             window.open(data?.srcLink);
                         }}

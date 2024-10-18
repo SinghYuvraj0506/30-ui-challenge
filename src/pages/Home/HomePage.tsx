@@ -10,12 +10,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Success from '../../components/dialogs/Success';
 import toast from 'react-hot-toast';
+import Already from '../../components/dialogs/Already';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const HomePage = () => {
     const mainContainer = useRef<HTMLDivElement | null>(null);
     const [successModalOpen, setSuccessModalOpen] = useState(false);
+    const [alreadyModalOpen, setAlreadyModalOpen] = useState(false);
+    const [toastMessage, setToastMessage] = useState('');
 
     useGSAP(() => {
         const t1 = gsap.timeline();
@@ -88,9 +91,13 @@ const HomePage = () => {
                     return e.json();
                 })
                 .then((e) => {
-                    console.log(e);
-                    if (e?.statusCode === 200 && e?.success) {
+                    if (e?.statusCode === 200 && e?.success && e?.data) {
+                        // setToastMessage('Subscribed');
                         setSuccessModalOpen(true);
+                        resolve(e);
+                    } else if (e?.statusCode === 200 && e?.success) {
+                        // setToastMessage('Already Subscribed');
+                        setAlreadyModalOpen(true);
                         resolve(e);
                     }
                     reject(e?.message || 'Could not initate the subscription, Try Again!!!');
@@ -99,14 +106,15 @@ const HomePage = () => {
 
         toast.promise(reponse, {
             loading: 'Please Wait...',
-            success: 'Subscribed',
-            error: (e) => (e?.message || e)
+            success: "",
+            error: (e) => e?.message || e
         });
     };
 
     return (
         <>
             {successModalOpen && <Success onClose={() => setSuccessModalOpen(false)} />}
+            {alreadyModalOpen && <Already onClose={() => setAlreadyModalOpen(false)} />}
             <div ref={mainContainer}>
                 <Main openSuccessModal={handleSuccess} />
                 <Why />

@@ -39,10 +39,10 @@ const Navbar = () => {
     return (
         <div className="relative flex flex-col px-[4vw] sm:px-[8vw] w-full border-b-[1px] border-b-[#08071433]">
             <div
-                className="w-full h-full flex items-center justify-between sm:relative py-5 sm:py-7 lg:py-8"
+                className="w-full h-full flex items-center justify-between sm:relative py-4"
                 id="nav-container"
             >
-                <div className="w-12 h-12">
+                <div>
                     <Logo />
                 </div>
 
