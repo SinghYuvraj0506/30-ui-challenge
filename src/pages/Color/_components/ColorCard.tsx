@@ -59,7 +59,7 @@ const ColorCard = ({colorThemes, handleSelect,type}:Props) => {
 
     return (
         <div className="flex w-full flex-col gap-3 cursor-pointer" onClick={handleSelect}>
-            <div className="w-full grid grid-cols-4 h-[150px] sm:h-[210px] rounded-xl overflow-hidden shadow-xl" ref={contentRef}>
+            <div className="w-full grid grid-cols-4 h-[150px] sm:h-[210px] rounded-xl overflow-hidden hover:shadow-2xl" ref={contentRef}>
                 {colorThemes?.map((e) => (
                     <div key={e} className={clsx(`bg-white`, 'flex-1 h-full flex flex-col items-center box-border')}>
                         <span className={clsx('py-4 opacity-80 text-textBlack01', config.typography.text12)}>{e}</span>
