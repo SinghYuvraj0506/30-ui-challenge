@@ -1,4 +1,4 @@
-import { useRef} from 'react';
+import { useEffect, useRef} from 'react';
 import { CloseCircle, Copy, DocumentDownload } from 'iconsax-react';
 import config from '../../../libs/config';
 import clsx from 'clsx';
@@ -61,6 +61,12 @@ const PaletteWrapper = ({ onClose, colorData }: Props) => {
             toast.error('Some error occured');
         }
     };
+
+
+    useEffect(() => {
+        contentRef?.current?.scrollTo(0,0)
+      
+    }, [colorData])
 
     return (
         <div className="w-[95vw] sm:w-[84vw] bg-white rounded-3xl flex flex-col gap-10 p-6 sm:p-12 box-border h-[80vh] sm:h-[70vh] overflow-auto no-scrollbar" >

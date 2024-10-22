@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import DialogWrapper from '../../../components/HOC/DialogWrapper';
 import { CloseCircle, DocumentDownload } from 'iconsax-react';
 import config from '../../../libs/config';
@@ -23,6 +23,12 @@ const TypographyDialogWrapper = ({ onClose, data, setModalData }: Props) => {
         limit: 10,
         infiniteScroll: false
     });
+
+    useEffect(() => {
+        containerRef.current?.scrollTo(0,0)
+      
+    }, [data])
+    
 
     return (
         <div
