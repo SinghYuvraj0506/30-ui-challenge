@@ -12,6 +12,10 @@ import icon6 from '../assets/svg/tagUser.svg';
 import instaIcon from '../assets/svg/Instagram.svg';
 import xIcon from '../assets/svg/X.svg';
 
+import img01 from "../assets/images/testimonial/sunny.png"
+import img02 from "../assets/images/testimonial/shivam.png"
+import img03 from "../assets/images/testimonial/yuvraj.png"
+
 export const navLinks = [
     { name: 'Typography', link: '/typography' },
     { name: 'Color Palette', link: '/color-palette' }
@@ -87,7 +91,7 @@ export const communityContent = [
     },
     {
         id: 5,
-        image: 'https://store-images.s-microsoft.com/image/apps.56161.9007199266246365.1d5a6a53-3c49-4f80-95d7-78d76b0e05d0.a3e87fea-e03e-4c0a-8f26-9ecef205fa7b'
+        image: 'https://cdn.logojoy.com/wp-content/uploads/20231031154601/2014-netflix-logo-600x319.png'
     },
     {
         id: 6,
@@ -95,31 +99,31 @@ export const communityContent = [
     },
     {
         id: 7,
-        image: 'https://blogs.microsoft.com/wp-content/uploads/prod/2012/08/8867.Microsoft_5F00_Logo_2D00_for_2D00_screen.jpg'
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZpxxOwmSh275knZ3GIVX7_bagb6boaxfAhw3GXuW9285F6K_HmzqsJYMzk3o0mLmCxyA&usqp=CAU'
     }
 ];
 
 export const testimonialContent = [
     {
         username: 'Sunny Prakash',
-        designation: 'Product Manager',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/ChrisEvans2023.jpg/800px-ChrisEvans2023.jpg',
+        designation: 'Entrepreneur',
+        image: img01,
         testimonial:
-            'The 30 Days UI Challenge was a game-changer for me! Each day’s challenge pushed me out of my comfort zone, allowing me to sharpen my design skills while discovering new techniques. I highly recommend it to anyone looking to level up their UI design!'
+            'Design Daily has been a game-changer! The daily prompts and wireframes have pushed me to experiment and refine my skills. After 30 days, I feel more confident tackling real projects, and my portfolio has never looked better!'
     },
     {
         username: 'Shivam Shah',
-        designation: 'UI/UX Designer',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/ChrisEvans2023.jpg/800px-ChrisEvans2023.jpg',
+        designation: 'UI Designer',
+        image: img02,
         testimonial:
-            "This challenge gave me the perfect blend of creativity and structure to improve my UI skills. The daily tasks were fun yet challenging, and by the end, I could clearly see how much my designs had improved. If you're looking to grow as a designer, this is the way to go!"
+            "As a designer, staying creatively active can be challenging. Design Daily makes it easy with structured, bite-sized challenges every day. The wireframes are inspiring, and I love how it fits into my daily routine without overwhelming me!"
     },
     {
         username: 'Yuvraj Singh',
-        designation: 'Developer',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/ChrisEvans2023.jpg/800px-ChrisEvans2023.jpg',
+        designation: 'Software Engine er',
+        image: img03,
         testimonial:
-            'Taking part in the 30 Days UI Challenge helped me build confidence and develop a routine around design. The variety of tasks kept things exciting, and I was able to expand my portfolio with projects I’m really proud of. It’s an excellent learning experience!'
+            'Design Daily helped me build consistency and develop new design techniques. The prompts are relevant and practical, which has helped me grow as a designer. Highly recommend it to anyone looking to boost their design skills daily!'
     }
 ];
 

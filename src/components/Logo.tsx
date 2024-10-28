@@ -2,7 +2,7 @@ import logo from "../assets/images/logo.webp"
 
 export const Logo = () => {
     return (
-        <div className="w-20 h-20 flex cursor-pointer" onClick={()=>{
+        <div className="h-10 w-10 sm:w-20 sm:h-20 flex cursor-pointer" onClick={()=>{
             window.open("/","_self")
         }}>
             <img

@@ -37,9 +37,9 @@ const Navbar = () => {
     };
 
     return (
-        <div className="relative flex flex-col px-[4vw] sm:px-[8vw] w-full border-b-[1px] border-b-[#08071433]">
+        <div className="bg-white flex flex-col px-[4vw] sm:px-[8vw] w-full border-b-[1px] border-b-[#08071433] sticky top-0 z-[999]">
             <div
-                className="w-full h-full flex items-center justify-between sm:relative py-4"
+                className="w-full h-full flex items-center justify-between sm:relative sm:py-0 py-4 "
                 id="nav-container"
             >
                 <div>

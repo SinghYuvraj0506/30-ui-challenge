@@ -31,7 +31,7 @@ const Main:FC<Props> = ({openSuccessModal}) => {
                     )}
                 >
                     <img src={icon1} alt="" className='w-4 sm:w-6 lg:w-8'/>
-                    Safe & Secure
+                    No Spam
                 </div>
                 <section className="flex flex-col gap-4 sm:gap-6 lg:gap-8 items-center justify-center z-20 relative">
                     <div className={clsx(config.typography.head64, 'flex flex-col items-center')}>

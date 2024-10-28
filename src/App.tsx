@@ -22,11 +22,11 @@ function App() {
     ])
 
     return (
-        <>
+        <div className='w-full relative'>
             <Navbar />
             <RouterProvider router={router} />
             <Toaster position="top-right" reverseOrder={true} />
-        </>
+        </div>
     )
 }
 
