@@ -45,9 +45,9 @@ const Footer:FC<Props> = ({openSuccessModal}) => {
                         ))}
                     </div>
 
-                    <div className="flex items-center gap-5">
+                    <div className="flex items-center gap-3">
                         {socialLinks?.map((nav, index) => (
-                            <a href={nav?.link} key={index} target="_blank">
+                            <a href={nav?.link} key={index} target="_blank" className='w-7 h-7'>
                                 <img src={nav?.icon} alt="" />
                             </a>
                         ))}

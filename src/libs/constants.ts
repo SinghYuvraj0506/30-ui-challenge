@@ -11,6 +11,7 @@ import icon5 from '../assets/svg/boxRecieve.svg';
 import icon6 from '../assets/svg/tagUser.svg';
 import instaIcon from '../assets/svg/Instagram.svg';
 import xIcon from '../assets/svg/X.svg';
+import discordIcon from '../assets/svg/discord.svg';
 
 import img01 from "../assets/images/testimonial/sunny.png"
 import img02 from "../assets/images/testimonial/shivam.png"
@@ -130,12 +131,16 @@ export const testimonialContent = [
 export const socialLinks = [
     {
         icon: instaIcon,
-        link: '/'
+        link: 'https://www.instagram.com/designdailycoin'
     },
     {
         icon: xIcon,
-        link: '/'
-    }
+        link: 'https://x.com/designdailycoin'
+    },
+    {
+        icon: discordIcon,
+        link: 'https://discord.gg/4QMb8pAz'
+    },
 ];
 
 export const otherWebsiteLinks = [
