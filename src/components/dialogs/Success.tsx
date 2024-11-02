@@ -29,7 +29,10 @@ const Card = ({ icon, content }: CardProps) => {
 
 const Success: React.FC<SuccessProps> = ({ onClose }) => {
     return (
-        <div className="flex flex-col items-center max-h-[95vh] overflow-y-auto justify-start sm:justify-center text-center w-[90vw] sm:w-[80vw] py-14 bg-white rounded-[24px] gap-16 relative no-scrollbar" id="modal-success">
+        <div
+            className="flex flex-col items-center max-h-[95vh] overflow-y-auto justify-start sm:justify-center text-center w-[90vw] sm:w-[80vw] py-14 bg-white rounded-[24px] gap-16 relative no-scrollbar"
+            id="modal-success"
+        >
             <div
                 className={clsx(
                     'fixed sm:absolute right-6 top-6 text-textBlack02 cursor-pointer hover:scale-105 transition-all flex items-center gap-1',
@@ -37,7 +40,7 @@ const Success: React.FC<SuccessProps> = ({ onClose }) => {
                 )}
                 onClick={onClose}
             >
-                <CloseCircle size="24" color="#080714"/>
+                <CloseCircle size="24" color="#080714" />
             </div>
 
             <section className="flex items-center justify-center gap-4 flex-col w-full mt-7 sm:mt-0">
@@ -64,7 +67,7 @@ const Success: React.FC<SuccessProps> = ({ onClose }) => {
             <section className="flex flex-col items-center justify-center gap-4">
                 <div className="flex items-center gap-5">
                     {socialLinks?.map((nav, index) => (
-                        <a href={nav?.link} key={index} target="_blank">
+                        <a href={nav?.link} key={index} target="_blank" className="w-7 h-7">
                             <img src={nav?.icon} alt="" />
                         </a>
                     ))}
